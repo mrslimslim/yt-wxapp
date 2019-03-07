@@ -1,45 +1,83 @@
 <template>
   <div @click="clickHandle">
-
-    <div class="userinfo" @click="bindViewTap">
-
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
+    <div class="swiper">
+      <swiperHeader :images='imgArrs' ></swiperHeader>
     </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
+    <div class="bouns">
+      <bonus></bonus>
     </div>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-
-    <div class="all">
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
+    <div class="gallery">
+      <gallery :galleryArrs='galleryArrs'></gallery>
     </div>
+    <div class="history">
+      <buyHistory></buyHistory>
+    </div>
+    
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
+import swiperHeader from '@/components/swiper-header'
+import bonus from '@/components/bonus'
+import gallery from '@/components/gallery'
+import buyHistory from '@/components/buy-history'
 
 export default {
   data () {
     return {
-      motto: 'Hello miniprograme',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
+      imgArrs: [{
+        url: '/static/images/starbucks1.jpeg'
+      },
+      {
+        url: '/static/images/starbucks1.jpeg'
+      },
+      {
+        url: '/static/images/starbucks1.jpeg'
       }
+      ],
+      galleryArrs: [{
+        url: '/static/images/starbucks1.jpeg',
+        description: '沉醉花花世界'
+      },
+      {
+        url: '/static/images/starbucks1.jpeg',
+        description: '定制星意祝福'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '只想粘着你'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '有你真好'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '咖啡有你'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '可爱第一名'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '为你加油'
+      },
+      {
+        url: '../../../static/images/starbucks1.jpeg',
+        description: '生日快乐'
+      }
+      ]
     }
   },
 
   components: {
-    card
+    card,
+    swiperHeader,
+    bonus,
+    gallery,
+    buyHistory
   },
 
   methods: {
@@ -64,54 +102,5 @@ export default {
 </script>
 
 <style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
-}
 </style>
